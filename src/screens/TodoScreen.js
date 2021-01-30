@@ -17,8 +17,8 @@ const TodoScreen = () => {
   const goBack = () => changeScreen(null);
 
   const saveHandler = (title) => {
-    updateTodo(todo.id, title);
-    setModal(false);
+    Promise.resolve(updateTodo(todo.id, title))
+      .then(() => setModal(false));
   }
 
   return (
